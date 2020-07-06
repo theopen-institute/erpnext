@@ -232,7 +232,10 @@ const submit_salary_slip = function (frm) {
 			frappe.call({
 				method: 'submit_salary_slips',
 				args: {},
-				callback: function() {frm.events.refresh(frm);},
+				callback: function() {
+					frm.events.refresh(frm); 
+					frm.dashboard.refresh();
+				},
 				doc: frm.doc,
 				freeze: true,
 				freeze_message: 'Submitting Salary Slips and creating Journal Entry...'
